@@ -18,14 +18,14 @@ include('header.html');
                 <h3 class="card-title">Blog Listings</h3>
               </div>
               <?php 
-                if($_GET['pageno']){
+                if(!empty($_GET['pageno'])){
                   $pageno=$_GET['pageno'];
                 }
                 else{
                   $pageno=1;
                 }
-                $numOfrecs=10;
-                $offset= ($pageno-1)*numOfrecs;
+                $numOfrecs=1;
+                $offset= ($pageno-1)*$numOfrecs;
 
                 if(empty($_POST['search'])){
                    $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
